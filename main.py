@@ -4,6 +4,12 @@ from tkinter import ttk, messagebox
 import sqlite3
 
 
+#sync timer
+MINUTES = 5  # set minutes for syncing
+SECONDS = 0  # set seconds for syncing
+
+
+
 def fetch_data():
     global table1_data, table2_data
     conn1 = sqlite3.connect('database1.db')
@@ -89,8 +95,8 @@ def reset_timer():
     global timer_id
     if timer_id:
         root.after_cancel(timer_id)
-    minutes.set(5)
-    seconds.set(0)
+    minutes.set(MINUTES)
+    seconds.set(SECONDS)
     update_timer_label()
     start_timer()
 
